@@ -9,11 +9,12 @@ import styles from "./styles";
 interface HeaderProps {
   children: ReactNode;
 }
+
 export function Header({ children }: HeaderProps) {
   return (
-    <SafeAreaView style={styles.headerContainer}>
+    <View style={styles.headerContainer}>
       <Image source={logoImg} style={styles.logoImg} />
       {children}
-    </SafeAreaView>
+    </View>
   );
 }

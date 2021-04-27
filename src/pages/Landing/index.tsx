@@ -1,11 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text, SafeAreaView, View } from "react-native";
 import { Header } from "../../components/Header";
+import { Feed } from "../../components/Feed";
+import styles from "./styles";
 
 export function Landing() {
   return (
-    <Header>
-      <Text>Total de 43 casos</Text>
-    </Header>
+    <SafeAreaView style={styles.container}>
+      <Header>
+        <Text>Total de 43 casos</Text>
+      </Header>
+      <Feed />
+    </SafeAreaView>
   );
 }

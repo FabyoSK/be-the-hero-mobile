@@ -1,9 +1,12 @@
 import React, { ReactNode } from "react";
 
-import { Image, SafeAreaView, Text, View } from "react-native";
+import { View } from "react-native";
 
 import styles from "./styles";
 
-export function Card() {
-  return <View></View>;
+interface CardProps {
+  children: ReactNode;
+}
+export function Card({ children }: CardProps) {
+  return <View style={styles.cardContainer}>{children}</View>;
 }

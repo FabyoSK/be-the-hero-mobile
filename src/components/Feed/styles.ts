@@ -3,8 +3,7 @@ import { Colors } from "../../styles/Colors";
 
 const styles = StyleSheet.create({
   welcome: {
-    marginHorizontal: 20,
-    marginVertical: 20,
+    margin: 20,
   },
   title: {
     fontSize: 30,

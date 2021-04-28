@@ -7,9 +7,10 @@ import {
   SafeAreaView,
   View,
 } from "react-native";
+// import { useNavigation } from "@react-navigation/native";
 
 import { Header } from "../../components/Header";
-import { CaseItem } from "../../components/CaseItem";
+import { CaseItem } from "../../components/CauseItem";
 import { Card } from "../../components/Card";
 
 import styles from "./styles";
@@ -17,6 +18,14 @@ import styles from "./styles";
 import backIcon from "../../assets/back.png";
 
 export function Details() {
+  // // const { goBack } = useNavigation();
+
+  // function handleGoBack() {
+  //   goBack();
+  // }
+  function handleGoToWhatsApp() {}
+  function handleGoToEmail() {}
+
   return (
     <SafeAreaView style={styles.container}>
       <Header>
@@ -31,10 +40,13 @@ export function Details() {
           <Text style={styles.title}>Seja o herói</Text>
           <Text style={styles.text}>Entre em Contato</Text>
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={handleGoToWhatsApp}
+            >
               <Text style={styles.buttonText}>WhatsApp</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleGoToEmail}>
               <Text style={styles.buttonText}>Email</Text>
             </TouchableOpacity>
           </View>

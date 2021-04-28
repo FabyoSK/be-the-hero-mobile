@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import { Image, SafeAreaView, Text, View } from "react-native";
+import { Image, View } from "react-native";
 
 import logoImg from "../../assets/logo.png";
 

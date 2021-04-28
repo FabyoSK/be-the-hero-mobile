@@ -6,6 +6,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
+  casesText: {
+    color: Colors.textPrimary,
+  },
+
+  casesNumber: {
+    color: Colors.titleSecondary,
+  },
 });
 
 export default styles;

@@ -7,25 +7,25 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginHorizontal: 20,
   },
-  caseHeader: {
+  causeHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  caseInfo: {
+  causeInfo: {
     marginBottom: 20,
   },
-  caseInfoONG: {
+  causeInfoONG: {
     marginRight: 60,
     marginBottom: 20,
   },
-  caseInfoTitle: {
+  causeInfoTitle: {
     fontSize: 16,
     fontWeight: "bold",
     color: Colors.titleSecondary,
     marginBottom: 10,
     textTransform: "uppercase",
   },
-  caseInfoText: {
+  causeInfoText: {
     color: Colors.textPrimary,
     fontSize: 16,
   },

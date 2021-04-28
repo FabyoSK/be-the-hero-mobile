@@ -1,11 +1,14 @@
 import React from "react";
 
 import { ScrollView, Text, View } from "react-native";
-import { CaseItem } from "../CaseItem";
+import { useCause } from "../../hooks/useCauses";
+import { CauseItem } from "../CauseItem";
 
 import styles from "./styles";
 
 export function Feed() {
+  const { causes } = useCause();
+
   return (
     <ScrollView alwaysBounceVertical={false}>
       <View style={styles.welcome}>
@@ -15,13 +18,16 @@ export function Feed() {
         </Text>
       </View>
       <View>
-        <CaseItem showDescription={false} showViewMore={true} />
-        <CaseItem showDescription={false} showViewMore={true} />
-        <CaseItem showDescription={false} showViewMore={true} />
-        <CaseItem showDescription={false} showViewMore={true} />
-        <CaseItem showDescription={false} showViewMore={true} />
-        <CaseItem showDescription={false} showViewMore={true} />
-        <CaseItem showDescription={false} showViewMore={true} />
+        {causes.map((cause) => {
+          return (
+            <CauseItem
+              key={cause.id}
+              cause={cause}
+              showDescription={false}
+              showViewMore={true}
+            />
+          );
+        })}
       </View>
     </ScrollView>
   );

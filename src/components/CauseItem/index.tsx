@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
@@ -24,6 +25,11 @@ export function CauseItem({
   showViewMore,
   cause,
 }: CauseItemProps) {
+  const { navigate } = useNavigation();
+
+  function handleGoToDetailsPage() {
+    navigate("Details", { cause });
+  }
   return (
     <Card>
       <View style={styles.causeHeader}>
@@ -49,7 +55,10 @@ export function CauseItem({
         </Text>
       </View>
       {showViewMore && (
-        <TouchableOpacity style={styles.viewMore}>
+        <TouchableOpacity
+          style={styles.viewMore}
+          onPress={handleGoToDetailsPage}
+        >
           <Text style={styles.viewMoreText}>Ver mais detalhes:</Text>
           <Image source={goIcon} />
         </TouchableOpacity>

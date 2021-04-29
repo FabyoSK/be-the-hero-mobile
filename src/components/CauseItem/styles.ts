@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   causeInfoTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 15,
     color: Colors.titleSecondary,
+    fontWeight: "bold",
     marginBottom: 10,
     textTransform: "uppercase",
   },
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   viewMore: {
+    marginTop: 10,
     paddingTop: 20,
     paddingBottom: 10,
     borderStyle: "solid",

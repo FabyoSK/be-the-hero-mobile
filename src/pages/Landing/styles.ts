@@ -8,10 +8,12 @@ const styles = StyleSheet.create({
   },
   casesText: {
     color: Colors.textPrimary,
+    fontSize: 16,
   },
 
   casesNumber: {
     color: Colors.titleSecondary,
+    fontSize: 16,
   },
 });
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
   Text,
@@ -6,35 +6,61 @@ import {
   Image,
   SafeAreaView,
   View,
+  Linking,
 } from "react-native";
-// import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Header } from "../../components/Header";
-import { CaseItem } from "../../components/CauseItem";
+import { CauseItem } from "../../components/CauseItem";
 import { Card } from "../../components/Card";
 
 import styles from "./styles";
 
 import backIcon from "../../assets/back.png";
+import { useCause } from "../../hooks/useCauses";
 
-export function Details() {
-  // // const { goBack } = useNavigation();
+export function Details(props: any) {
+  const { goBack } = useNavigation();
+  const { getOrganization, organization } = useCause();
 
-  // function handleGoBack() {
-  //   goBack();
-  // }
-  function handleGoToWhatsApp() {}
-  function handleGoToEmail() {}
+  const detailedCause = props.route.params.cause;
+
+  function handleGoBack() {
+    goBack();
+  }
+
+  useEffect(() => {
+    getOrganization(detailedCause.organization_name);
+  }, []);
+
+  function handleGoToWhatsApp() {
+    if (organization) {
+      alert("A Error has occurred. Please try again");
+      return;
+    }
+    Linking.openURL(`whatsapp://send?phone=${organization?.whatsApp}`);
+  }
+  function handleGoToEmail() {
+    if (organization) {
+      alert("A Error has occurred. Please try again");
+      return;
+    }
+    Linking.openURL(`mailto://${organization?.email}`);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <Header>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleGoBack}>
           <Image source={backIcon} />
         </TouchableOpacity>
       </Header>
       <View>
-        <CaseItem showDescription={true} showViewMore={true} />
+        <CauseItem
+          showDescription={true}
+          showViewMore={false}
+          cause={detailedCause}
+        />
         <Card>
           <Text style={styles.title}>Salve o dia!</Text>
           <Text style={styles.title}>Seja o herói</Text>
